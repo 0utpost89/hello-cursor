@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hello from Cursor</title>
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #0f1117;
+      color: #e8eaed;
+      transition: background-color 0.45s ease;
+    }
+
+    main {
+      max-width: 32rem;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.25rem, 6vw, 3.25rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, #7dd3fc, #a78bfa);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    p {
+      margin: 0 0 2rem;
+      font-size: 1.125rem;
+      line-height: 1.6;
+      color: #9ca3af;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 0.625rem;
+      padding: 0.875rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0f1117;
+      background: linear-gradient(135deg, #7dd3fc, #a78bfa);
+      box-shadow: 0 4px 24px rgba(125, 211, 252, 0.25);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(167, 139, 250, 0.35);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    button:focus-visible {
+      outline: 2px solid #7dd3fc;
+      outline-offset: 3px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1><span>Hello from Cursor</span></h1>
+    <p>
+      A minimal dark page built in a single HTML file — no external styles or scripts, just HTML, CSS, and a little JavaScript.
+    </p>
+    <button type="button" id="color-btn">Change background</button>
+  </main>
+
+  <script>
+    const palette = [
+      "#0f1117",
+      "#1a1f2e",
+      "#162447",
+      "#1b4332",
+      "#3d2645",
+      "#2d1b33",
+      "#1c2541",
+      "#0d2818",
+    ];
+
+    let index = 0;
+    const btn = document.getElementById("color-btn");
+
+    btn.addEventListener("click", function () {
+      index = (index + 1) % palette.length;
+      document.body.style.backgroundColor = palette[index];
+    });
+  </script>
+</body>
+</html>
